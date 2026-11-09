@@ -1,0 +1,17 @@
+# 统一换行符，避免跨平台克隆后脚本跑不起来
+* text=auto eol=lf
+
+# Windows 脚本保持 CRLF
+*.bat text eol=crlf
+# 一键刷跑.vbs 是 UTF-16LE 编码，按文本转换换行符会插入 0x0D 破坏编码（WSH 报 800A0408 无效字符）
+*.vbs -text
+*.cmd text eol=crlf
+
+# Shell 脚本必须是 LF，否则 Git Bash / WSL 报 bad interpreter
+*.sh text eol=lf
+
+# 二进制
+*.ico binary
+*.png binary
+*.jpg binary
+*.zip binary
